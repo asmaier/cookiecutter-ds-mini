@@ -11,17 +11,17 @@ and testing. It supports the following features:
 
 ## Quickstart
 
-First you need to install cookiecutter:
+First you need to install poetry and cookiecutter:
 
 ### Linux, Windows
 
     $ pip install pipx
-    $ pipx install cookiecutter
+    $ pipx install poetry cookiecutter
 
 
 ### Homebrew on Mac OS X
 
-    $ brew install cookiecutter
+    $ brew install poetry cookiecutter
 
 
 Then navigate to the directory in which you want to
