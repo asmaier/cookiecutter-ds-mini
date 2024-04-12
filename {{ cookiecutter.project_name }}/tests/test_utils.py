@@ -8,9 +8,11 @@ class TestUtils:
     test_dir = Path(__file__).parent.absolute()
     test_data = test_dir / "resources"
 
+    @classmethod
     def setup_class(cls):
         print("Starting tests...")
 
+    @classmethod
     def teardown_class(cls):
         print("Finished tests...")
 
