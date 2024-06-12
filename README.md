@@ -32,21 +32,23 @@ create a project directory, and run the following commands
 
 Afterwards your project directory is ready. It will have the following structure
 ```
-└── {{ cookiecutter.project_name }}
-    ├── README.md
-    ├── data
-    │   └── iris.csv
-    ├── notebooks
-    │   └── example.ipynb
-    ├── pyproject.toml
-    ├── src
-    │   └── {{ cookiecutter.project_slug }}
-    │       ├── __init__.py
-    │       └── utils.py
-    └── tests
-        ├── resources
-        │   └── .gitkeep
-        └── test_utils.py
+{{ cookiecutter.project_name }}/
+├── README.md
+├── data
+│   └── iris.csv
+├── notebooks
+│   └── example.ipynb
+├── pyproject.toml
+├── src
+│   └── {{ cookiecutter.project_slug }}
+│       ├── resources
+│       │   └── .gitkeep
+│       ├── __init__.py
+│       └── utils.py
+└── tests
+    ├── resources
+    │   └── .gitkeep
+    └── test_utils.py
 ```
 Just change into the newly
 created directory and install the dependencies
