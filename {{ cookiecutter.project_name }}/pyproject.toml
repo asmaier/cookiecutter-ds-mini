@@ -1,21 +1,25 @@
-[tool.poetry]
+[project]
 name = "{{cookiecutter.project_slug}}"
 version = "0.1.0"
 description = "{{cookiecutter.project_description}}"
-authors = ["{{cookiecutter.author}} <{{cookiecutter.email}}>"]
+authors = [
+    { name = "{{cookiecutter.author}}", email = "{{cookiecutter.email}}" }
+]
 readme = "README.md"
-packages = [{include = "{{cookiecutter.project_slug}}", from = "src"}]
 
-[tool.poetry.dependencies]
-python = "^3.12"
-pandas = "^2.2.2"
-matplotlib = "^3.8.3"
-scikit-learn = "^1.4.1.post1"
+requires-python = ">=3.12"
+dependencies = [
+    "matplotlib>=3.10.0",
+    "pandas>=2.2.3",
+    "scikit-learn>=1.6.0",
+]
 
-[tool.poetry.group.dev.dependencies]
-pytest = "^8.1.1"
-ruff = "^0.4.2"
-jupyter = "^1.0.0"
+[dependency-groups]
+dev = [
+    "jupyter>=1.1.1",
+    "pytest>=8.3.4",
+    "ruff>=0.8.4",
+]
 
 [tool.ruff]
 target-version = "py312"
@@ -25,5 +29,5 @@ line-length = 120
 extend-select = ["E", "F"]
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"

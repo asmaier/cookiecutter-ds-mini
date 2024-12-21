@@ -4,17 +4,17 @@
 
 ## Setup project
 
-    $ poetry install
+    $ uv sync
 
 ## Start jupyter notebooks
 
-    $ poetry run jupyter lab
+    $ uv run jupyter lab
 
 ## Run linter and tests
 
-    $ poetry run ruff check
-    $ poetry run pytest -s
+    $ uv run ruff check
+    $ uv run pytest -s
 
 ## Teardown project
 
-    $ poetry env remove --all
+    $ rm -r .venv uv.lock
