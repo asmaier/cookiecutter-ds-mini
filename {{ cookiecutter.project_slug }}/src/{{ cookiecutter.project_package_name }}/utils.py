@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def so2(degree):
     """
     Function to get the rotation matrix for a 2D rotation

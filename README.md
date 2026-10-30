@@ -4,63 +4,61 @@ This is a Cookiecutter template that can be used to initiate a minimal Python da
 and testing. It supports the following features:
 
 - [uv](https://docs.astral.sh/uv/) for dependency management
-- Code quality with [ruff](https://github.com/charliermarsh/ruff)
+- Linting and formatting with [ruff](https://docs.astral.sh/ruff/)
 - Testing with [pytest](https://docs.pytest.org/)
 - Ready to run [Jupyter](https://jupyter.org/) notebooks
 - The canonical set of Python data science packages: [pandas](https://pandas.pydata.org/), [matplotlib](https://matplotlib.org/), [scikit-learn](https://scikit-learn.org/)
 
 ## Quickstart
 
-First you need to install uv and cookiecutter:
+First you need to [install uv](https://docs.astral.sh/uv/getting-started/installation/), e.g.
 
-### Linux, Windows
+    $ curl -LsSf https://astral.sh/uv/install.sh | sh
 
-    $ pip install pipx
-    $ pipx install uv cookiecutter
+or on Mac OS X with Homebrew
 
+    $ brew install uv
 
-### Homebrew on Mac OS X
+Then navigate to the directory in which you want to create a project directory, and run
 
-    $ brew install uv cookiecutter
+    $ uvx cookiecutter gh:asmaier/cookiecutter-ds-mini
 
+`uvx` runs cookiecutter without installing it permanently.
 
-Then navigate to the directory in which you want to
-create a project directory, and run the following commands
-
-    $ cookiecutter https://github.com/asmaier/cookiecutter-ds-mini.git
-
-
-Afterwards your project directory is ready. It will have the following structure
+Afterwards your project directory is ready. For a project named `My Analysis` it will have the following structure
 ```
-{{ cookiecutter.project_name }}/
+my-analysis/
+├── .gitignore
 ├── README.md
 ├── data
-│   └── iris.csv
+│   └── iris.csv
 ├── notebooks
-│   └── example.ipynb
+│   └── example.ipynb
 ├── pyproject.toml
 ├── src
-│   └── {{ cookiecutter.project_slug }}
-│       ├── resources
-│       │   └── .gitkeep
-│       ├── __init__.py
-│       └── utils.py
+│   └── my_analysis
+│       ├── resources
+│       │   └── .gitkeep
+│       ├── __init__.py
+│       └── utils.py
 └── tests
     ├── resources
-    │   └── .gitkeep
+    │   └── .gitkeep
     └── test_utils.py
 ```
-The `data`repository is meant for all kinds of data which you might analyse or explore 
+The project directory and distribution name (`my-analysis`) are derived from the project name with hyphens,
+the importable package name (`my_analysis`) with underscores.
+
+The `data` directory is meant for all kinds of data which you might analyse or explore
 with jupyter notebooks in the `notebooks` directory. The code for your python package goes
-into the `src/{{ cookiecutter.project_slug }}` directory. 
-The tests for your code go into the `tests` directory. Your package and test repository 
+into the `src/my_analysis` directory.
+The tests for your code go into the `tests` directory. Your package and test directory
 hold a `resources` directory which is meant for static resources like images, test files, ...
 which your package or tests might need.
 
-Just change into the newly
-created directory and install the dependencies
+Just change into the newly created directory and install the dependencies
 
-    $ cd <project_name>
+    $ cd my-analysis
     $ uv sync
 
 You are now ready to start developing. To create your first jupyter notebooks
@@ -69,6 +67,12 @@ just do
     $ uv run jupyter lab
 
 That's all Folks! For more information also have a look at the `README.md` created for your project.
+
+## Developing this template
+
+The tests in `tests/` generate projects from the template and run ruff, pytest and the example notebook in them:
+
+    $ uv run pytest
 
 ## Acknowledgements
 

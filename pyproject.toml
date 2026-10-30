@@ -1,0 +1,18 @@
+# Only used to test the template itself: `uv run pytest`
+[project]
+name = "cookiecutter-ds-mini"
+version = "0.2.0"
+requires-python = ">=3.12"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.4",
+    "pytest-cookies>=0.7.0",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
